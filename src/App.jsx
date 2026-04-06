@@ -16,6 +16,8 @@ import { Myfavorities } from './features/auth/components/Myfavorities'
 import { HashRouter, Routes, Route } from "react-router-dom"
 // EDITADO - Import FavoritesProvider
 import { FavoritesProvider } from './context/FavoritesContext'
+// EDITADO - Import CartProvider
+import { CartProvider } from './context/CartContext'
 // EDITADO - Import MUI ThemeProvider
 import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
 
@@ -82,19 +84,21 @@ function App() {
       <ThemeProvider theme={gamingTheme}>
         <CssBaseline />
         <FavoritesProvider>
-          <HashRouter>
-            <Header></Header>
-            <Routes>
-              <Route path='/' element={<Content />}></Route>
-              <Route path='/article' element={<Article />}></Route>
-              <Route path='/offers' element={<Offers />}></Route>
-              <Route path='/myaccount' element={<Myaccount />}></Route>
-              <Route path='/mybuys' element={<Mybuys />}></Route>
-              <Route path='/myfavorities' element={<Myfavorities />}></Route>
-            </Routes>
-            <Footer></Footer>
+          <CartProvider>
+              <HashRouter>
+                <Header></Header>
+                <Routes>
+                  <Route path='/' element={<Content />}></Route>
+                  <Route path='/article' element={<Article />}></Route>
+                  <Route path='/offers' element={<Offers />}></Route>
+                  <Route path='/myaccount' element={<Myaccount />}></Route>
+                  <Route path='/mybuys' element={<Mybuys />}></Route>
+                  <Route path='/myfavorities' element={<Myfavorities />}></Route>
+                </Routes>
+                <Footer></Footer>
 
-          </HashRouter>
+              </HashRouter>
+            </CartProvider>
         </FavoritesProvider>
       </ThemeProvider>
     </>

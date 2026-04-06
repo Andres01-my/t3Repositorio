@@ -71,8 +71,9 @@ export const Footer = () => {
                                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                                     <LocationOnIcon sx={{ fontSize: 18, color: '#06b6d4' }} />
                                     <Typography variant="body2" sx={{ opacity: 0.85 }}>
-                                        Bogotá, Colombia
+                                        Medellin, Colombia
                                     </Typography>
+                                    
                                 </Box>
                             </Stack>
                         </Grid>
@@ -100,7 +101,23 @@ export const Footer = () => {
                                     Inicio
                                 </Link>
                                 <Link 
-                                    href="#/article" 
+                                    href="https://github.com/Andres01-my/t3Repositorio" 
+                                    color="inherit" 
+                                    underline="none"
+                                    sx={{ 
+                                        opacity: 0.85,
+                                        transition: 'all 0.3s',
+                                        '&:hover': { 
+                                            opacity: 1,
+                                            color: '#06b6d4',
+                                            transform: 'translateX(5px)'
+                                        }
+                                    }}
+                                >
+                                    
+                                    GitHub
+                                </Link>
+                                <Link 
                                     color="inherit" 
                                     underline="none"
                                     sx={{ 

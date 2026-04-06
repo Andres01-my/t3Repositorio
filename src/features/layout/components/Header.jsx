@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useFavorites } from '../../../context/FavoritesContext';
+import { useCart } from '../../../context/CartContext';
 // MUI
 import { 
     AppBar, 
@@ -41,6 +42,8 @@ export const Header = () => {
     const theme = useTheme();
     // EDITADO - Get favorites count
     const { favorites } = useFavorites();
+    // EDITADO - Get cart count
+    const { getCartCount } = useCart();
     
     // EDITADO - Responsive breakpoint
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
@@ -255,7 +258,14 @@ export const Header = () => {
                                     }
                                 }}
                             >
-                                <ShoppingCartIcon />
+                                <Badge badgeContent={getCartCount()} sx={{
+                                    '& .MuiBadge-badge': {
+                                        backgroundColor: '#06b6d4',
+                                        color: '#0f0f1a'
+                                    }
+                                }}>
+                                    <ShoppingCartIcon />
+                                </Badge>
                             </IconButton>
 
                             {/* EDITADO - Account icon */}

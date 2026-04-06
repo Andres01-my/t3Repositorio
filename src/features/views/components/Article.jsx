@@ -1,6 +1,7 @@
 // EDITADO - Complete Article page with gaming products
 import React from 'react';
 import { useFavorites } from '../../../context/FavoritesContext';
+import { useCart } from '../../../context/CartContext';
 import { 
     Container, 
     Grid, 
@@ -20,6 +21,8 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 export const Article = () => {
     // EDITADO - Get favorites context
     const { addToFavorites, isFavorite } = useFavorites();
+    // EDITADO - Get cart context
+    const { addToCart } = useCart();
 
     // EDITADO - Array of 10 gaming products with video game themed products
     const products = [
@@ -108,6 +111,11 @@ export const Article = () => {
     // EDITADO - Handle add to favorites
     const handleAddToFavorites = (product) => {
         addToFavorites(product);
+    };
+
+    // EDITADO - Handle add to cart
+    const handleAddToCart = (product) => {
+        addToCart(product);
     };
 
     // EDITADO - Get stock status color
@@ -199,6 +207,7 @@ export const Article = () => {
                             <CardActions sx={{ justifyContent: 'space-between', px: 2, pb: 2 }}>
                                 <Button 
                                     variant="contained" 
+                                    onClick={() => handleAddToCart(product)}
                                     sx={{
                                         background: 'linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%)',
                                         '&:hover': {

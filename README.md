@@ -1,16 +1,77 @@
-# React + Vite
+# GameZone - Tienda de VideoJuegos
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+E-commerce de video juegos y accesorios desarrollado con React + Vite + MUI.
 
-Currently, two official plugins are available:
+## Jerarquía de Carpetas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```
+t3_eshop/
+├── src/
+│   ├── App.jsx                    # Componente principal, providers y rutas
+│   ├── main.jsx                   # Punto de entrada
+│   ├── Routes.jsx                 # Definición de rutas (vacío)
+│   │
+│   ├── context/                   # Contextos de React (estado global)
+│   │   ├── CartContext.jsx       # Carrito de compras
+│   │   └── FavoritesContext.jsx  # Productos favoritos
+│   │
+│   ├── features/
+│   │   ├── auth/
+│   │   │   └── components/        # Componentes de autenticación/cuenta
+│   │   │       ├── Myaccount.jsx # Mi cuenta
+│   │   │       ├── Mybuys.jsx    # Carrito de compras (mis compras)
+│   │   │       └── Myfavorities.jsx # Mis favoritos
+│   │   │
+│   │   ├── layout/
+│   │   │   └── components/        # Componentes de estructura
+│   │   │       ├── Content.jsx   # Página de inicio
+│   │   │       ├── Footer.jsx    # Pie de página
+│   │   │       └── Header.jsx    # Navegación principal
+│   │   │
+│   │   └── views/
+│   │       ├── components/
+│   │       │   ├── Article.jsx   # Catálogo de productos
+│   │       │   └── Offers.jsx     # Ofertas
+│   │       └── hooks/
+│   │           └── Usestate.jsx   # Hooks personalizados
+│   │
+│   ├── shared/
+│   │   ├── App.css               # Estilos globales
+│   │   └── index.css             # Estilos base
+│   │
+│   └── assets/
+│       └── react.svg             # Recursos estáticos
+│
+├── public/                       # Archivos públicos estáticos
+├── index.html                    # HTML entrada
+├── package.json                  # Dependencias
+└── vite.config.js               # Configuración Vite
+```
 
-## React Compiler
+## Funcionalidades de la Página
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Navegación
+- **Header**: Logo, búsqueda, menú de navegación, iconos de favoritos y carrito
+- **Footer**: Información de la empresa y enlaces
 
-## Expanding the ESLint configuration
+### Páginas/Vistas
+- **/** (Content) - Inicio de la tienda
+- **/article** (Article) - Catálogo de productos (videojuegos, consolas, accesorios)
+- **/offers** (Offers) - Ofertas especiales
+- **/myaccount** (Myaccount) - Cuenta del usuario
+- **/mybuys** (Mybuys) - Carrito de compras
+- **/myfavorities** (Myfavorities) - Lista de favoritos
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Características
+- **Carrito de compras**: Agregar productos, modificar cantidades, eliminar, ver total
+- **Favoritos**: Marcar productos como favoritos, visualizar lista
+- **Tema oscuro**: Diseño gamer con gradientes violeta/cyan
+- **Responsive**: Adaptable a móviles y escritorio
+
+## Ejecutar el Proyecto
+
+```bash
+cd t3_eshop
+npm install
+npm run dev
+```
